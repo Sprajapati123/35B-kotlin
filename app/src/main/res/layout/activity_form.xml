@@ -27,4 +27,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Selected country:" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="City" />
+
+    <AutoCompleteTextView
+        android:id="@+id/autoComplete"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter city" />
 </LinearLayout>
