@@ -9,12 +9,26 @@ import androidx.recyclerview.widget.RecyclerView
 
 class RecyclerActivity : AppCompatActivity() {
     lateinit var recyclerView: RecyclerView
+    var imageList = ArrayList<Int>()
+    var fruitsTitle = ArrayList<String>()
+    var fruitsDesc = ArrayList<String>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_recycler)
         recyclerView = findViewById(R.id.recyclerView)
 
+        imageList.add(R.drawable.grapes)
+        imageList.add(R.drawable.mango)
+        imageList.add(R.drawable.apple)
+
+        fruitsTitle.add("Grapes")
+        fruitsTitle.add("Mango")
+        fruitsTitle.add("Apple")
+
+        fruitsDesc.add("this is grapes")
+        fruitsDesc.add("this is mango")
+        fruitsDesc.add("this is apple")
 
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
