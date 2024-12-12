@@ -24,7 +24,7 @@ class ButtonActivity : AppCompatActivity() {
                 binding.editPasswords.error = "password can't be empty"
             }else{
                 val intent = Intent(this@ButtonActivity,
-                    FormActivity::class.java)
+                    DestinationActivity::class.java)
 
                 val username: String = binding.editUsername.text.toString()
                 val password: String = binding.editPasswords.text.toString()

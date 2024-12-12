@@ -15,6 +15,9 @@
         android:theme="@style/Theme._35B"
         tools:targetApi="31">
         <activity
+            android:name=".DestinationActivity"
+            android:exported="false" />
+        <activity
             android:name=".ButtonActivity"
             android:exported="true">
             <intent-filter>
