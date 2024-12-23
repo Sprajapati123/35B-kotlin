@@ -12,7 +12,7 @@ import androidx.core.view.WindowInsetsCompat
 import com.example.a35b.databinding.ActivityButtonBinding
 
 class ButtonActivity : AppCompatActivity() {
-    lateinit var binding : ActivityButtonBinding
+    lateinit var binding: ActivityButtonBinding
     lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,34 +22,34 @@ class ButtonActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         sharedPreferences =
-            getSharedPreferences("userData",Context.MODE_PRIVATE)
+            getSharedPreferences("userData", Context.MODE_PRIVATE)
 
         binding.btnLogin.setOnClickListener {
-
             val username: String = binding.editUsername.text.toString()
             val password: String = binding.editPasswords.text.toString()
 
-            if(username.isEmpty()){
+            if (username.isEmpty()) {
                 binding.editUsername.error = "username can't be empty"
-            }else if(password.isEmpty()){
+            } else if (password.isEmpty()) {
                 binding.editPasswords.error = "password can't be empty"
-            }else{
-                if(binding.checkBox.isChecked){
+            } else {
+                if (binding.checkBox.isChecked) {
                     val editor = sharedPreferences.edit()
 
-                    editor.putString("username",username)
-                    editor.putString("password",password)
-
+                    editor.putString("username", username)
+                    editor.putString("password", password)
                     editor.apply()
                 }
 
-                val intent = Intent(this@ButtonActivity,
-                    DestinationActivity::class.java)
+                val intent = Intent(
+                    this@ButtonActivity,
+                    DestinationActivity::class.java
+                )
 
 
                 //key      //value
-                intent.putExtra("username",username)
-                intent.putExtra("password",password)
+                intent.putExtra("username", username)
+                intent.putExtra("password", password)
                 startActivity(intent)
             }
 
