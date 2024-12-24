@@ -5,6 +5,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import com.example.a35b.R
@@ -20,28 +21,14 @@ class HomeActivity : AppCompatActivity() {
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        replaceFragment(FirstFragment())
+
         binding.btnFirst.setOnClickListener {
-            val fragmentManager : FragmentManager =
-                supportFragmentManager
-
-            val fragmentTransaction : FragmentTransaction =
-                fragmentManager.beginTransaction()
-
-            fragmentTransaction.replace(R.id.frame,FirstFragment())
-
-            fragmentTransaction.commit()
-
+            replaceFragment(FirstFragment())
         }
 
         binding.btnSecond.setOnClickListener {
-            val fragmentManager : FragmentManager =
-                supportFragmentManager
-
-            val fragmentTransaction : FragmentTransaction =
-                fragmentManager.beginTransaction()
-
-            fragmentTransaction.replace(R.id.frame,SecondFragment())
-            fragmentTransaction.commit()
+            replaceFragment(SecondFragment())
         }
 
 
@@ -50,5 +37,16 @@ class HomeActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+    }
+
+    private fun replaceFragment(fragment : Fragment) {
+        val fragmentManager : FragmentManager =
+            supportFragmentManager
+
+        val fragmentTransaction : FragmentTransaction =
+            fragmentManager.beginTransaction()
+
+        fragmentTransaction.replace(R.id.frame,fragment)
+        fragmentTransaction.commit()
     }
 }
